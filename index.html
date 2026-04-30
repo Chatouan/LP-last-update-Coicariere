@@ -847,25 +847,16 @@ if(sb&&ft)new IntersectionObserver(e=>{e.forEach(x=>{sb.style.display=x.isInters
 </body>
 </html>
 <script>
-(function fixLPText(){
-  function fix(){
-    document.querySelectorAll("*").forEach(el=>{
-      if(el.children.length===0){
-        let t = el.textContent.trim();
-
-        if(t === "0+") el.textContent = "+1,800";
-        if(t === "0 h" || t === "h48" || t === "48h") el.textContent = "48 ساعة";
-
-        if(t.includes("30 يومًا مجانًا 30 يومًا مجانًا 30 يومًا مجانًا")){
-          el.textContent = "🔥 30 يومًا مجانًا";
-        }
-      }
-    });
+<script>
+(function(){
+  function fixText(){
+    document.body.innerHTML = document.body.innerHTML
+      .replaceAll('0+', '+1,800')
+      .replaceAll('0 h', '48 ساعة')
+      .replaceAll('h48', '48 ساعة')
+      .replaceAll('48h', '48 ساعة')
+      .replaceAll('30 يومًا مجانًا 30 يومًا مجانًا 30 يومًا مجانًا', '🔥 30 يومًا مجانًا');
   }
-
-  fix();
-  setTimeout(fix, 500);
-  setTimeout(fix, 1500);
-  setTimeout(fix, 3000);
+  fixText();
 })();
 </script>
