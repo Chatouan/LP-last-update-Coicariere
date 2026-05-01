@@ -607,14 +607,14 @@ footer{padding:26px 0;border-top:1px solid var(--bd);text-align:center}
 <section id="video-sec" class="sec">
   <div class="wrap">
     <div class="vcontent">
-      <div class="vbox fi"
-           onclick="this.innerHTML='<iframe width=100% height=100% style=border:none;position:absolute;inset:0 src=YOUR_VIDEO_URL?autoplay=1 allow=autoplay allowfullscreen></iframe>'">
+      <div class="vbox fi">
+        <video autoplay muted loop playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" aria-label="فيديو توضيحي لمنصة CoinCarrière">
+          <source src="https://i.imgur.com/YtDSnyd.mp4" type="video/mp4">
+        </video>
+        <div style="position:absolute;inset:0;background:rgba(5,30,44,.42)"></div>
         <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(0,148,217,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,148,217,.04) 1px,transparent 1px);background-size:32px 32px"></div>
-        <div class="play-btn">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="#051e2c"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <div class="vcap">اضغط لمشاهدة كيفاش كيخدم</div>
-        <div class="vbadge">▶ 90 ثانية</div>
+        <div class="vcap">فيديو توضيحي مباشر</div>
+        <div class="vbadge">▶ تشغيل تلقائي</div>
       </div>
       <div>
         <div class="pill pill-blue"><span class="dot"></span> كيفاش كيخدم</div>
