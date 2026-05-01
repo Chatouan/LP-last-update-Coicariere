@@ -247,14 +247,21 @@ h2.st{font-size:clamp(1.65rem,3.8vw,2.5rem);font-weight:800;line-height:1.13;mar
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .lchip{flex-shrink:0;padding:9px 20px;background:var(--bgcard);border:1px solid var(--bd);border-radius:10px;font-size:.82rem;color:var(--muted);white-space:nowrap;transition:var(--tr)}
 .lchip:hover{color:var(--white);border-color:var(--blue)}
-.stats4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:44px}
-@media(max-width:840px){.stats4{grid-template-columns:1fr 1fr}}
-.scell{background:var(--bgcard);border:1px solid var(--bd);border-radius:var(--r2);padding:26px 14px;text-align:center;transition:var(--tr);position:relative;overflow:hidden}
+.stats4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:stretch;margin:8px auto 48px}
+@media(max-width:840px){.stats4{grid-template-columns:1fr 1fr;gap:12px}}
+@media(max-width:520px){.stats4{grid-template-columns:1fr}}
+.scell{background:linear-gradient(180deg,rgba(7,45,64,.92),rgba(6,37,53,.86));border:1px solid var(--bd);border-radius:18px;padding:30px 18px;text-align:center;transition:var(--tr);position:relative;overflow:hidden;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 8px 24px rgba(0,0,0,.18)}
 .scell::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--navy),transparent);opacity:0;transition:var(--tr)}
 .scell:hover::before{opacity:1}
-.scell:hover{border-color:var(--bd2);transform:translateY(-3px)}
-.sn{font-size:clamp(1.9rem,4vw,2.5rem);font-weight:800;color:var(--white);display:block;line-height:1;margin-bottom:7px}
-.sl{font-size:.73rem;color:var(--muted)}
+.scell:hover{border-color:var(--bd2);transform:translateY(-4px);box-shadow:0 14px 34px rgba(0,0,0,.24)}
+.sn{font-size:clamp(2rem,4vw,2.7rem);font-weight:900;color:var(--white);display:flex;justify-content:center;align-items:baseline;line-height:1;margin-bottom:10px;letter-spacing:.01em}
+.sl{font-size:.82rem;color:var(--off);opacity:.88;line-height:1.45}
+.time-ltr{direction:ltr;unicode-bidi:isolate;display:inline-flex;align-items:baseline;justify-content:center}
+.ltr-value {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+  display: inline-block;
+}
 .tcard{padding:28px 30px;max-width:660px;margin:0 auto}
 .tq{font-size:.93rem;line-height:1.85;color:var(--off);font-style:italic;margin-bottom:18px}
 .tq::before{content:"C";font-size:3.5rem;color:var(--blue);line-height:.45;display:block;margin-bottom:6px;opacity:.7}
@@ -600,14 +607,14 @@ footer{padding:26px 0;border-top:1px solid var(--bd);text-align:center}
 <section id="video-sec" class="sec">
   <div class="wrap">
     <div class="vcontent">
-      <div class="vbox fi"
-           onclick="this.innerHTML='<iframe width=100% height=100% style=border:none;position:absolute;inset:0 src=YOUR_VIDEO_URL?autoplay=1 allow=autoplay allowfullscreen></iframe>'">
+      <div class="vbox fi">
+        <video autoplay muted loop playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" aria-label="فيديو توضيحي لمنصة CoinCarrière">
+          <source src="https://i.imgur.com/YtDSnyd.mp4" type="video/mp4">
+        </video>
+        <div style="position:absolute;inset:0;background:rgba(5,30,44,.42)"></div>
         <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(0,148,217,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,148,217,.04) 1px,transparent 1px);background-size:32px 32px"></div>
-        <div class="play-btn">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="#051e2c"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <div class="vcap">اضغط لمشاهدة كيفاش كيخدم</div>
-        <div class="vbadge">▶ 90 ثانية</div>
+        <div class="vcap">فيديو توضيحي مباشر</div>
+        <div class="vbadge">▶ تشغيل تلقائي</div>
       </div>
       <div>
         <div class="pill pill-blue"><span class="dot"></span> كيفاش كيخدم</div>
@@ -645,7 +652,7 @@ footer{padding:26px 0;border-top:1px solid var(--bd);text-align:center}
     </div>
     <div class="stats4">
       <div class="scell fi"><span class="sn"><span dir="ltr" class="ctr" data-t="1800">0</span>+</span><div class="sl">مرشحون عقار نشيطون</div></div>
-      <div class="scell fi d1"><span class="sn"><span dir="ltr" class="ctr" data-t="48">0</span>h</span><div class="sl">متوسط وقت التوظيف</div></div>
+      <div class="scell fi d1"><span class="sn"><span class="stat-number ltr-value" dir="ltr">48h</span></span><div class="sl">متوسط وقت التوظيف</div></div>
       <div class="scell fi d2"><span class="sn"><span dir="ltr">3×</span></span><div class="sl">أكثر كفاءات مؤهلة</div></div>
       <div class="scell fi d3"><span class="sn" dir="ltr">4.9</span><div class="sl">تقييم مسؤولي الموارد البشرية</div></div>
     </div>
@@ -846,17 +853,3 @@ if(sb&&ft)new IntersectionObserver(e=>{e.forEach(x=>{sb.style.display=x.isInters
 </script>
 </body>
 </html>
-<script>
-<script>
-(function(){
-  function fixText(){
-    document.body.innerHTML = document.body.innerHTML
-      .replaceAll('0+', '+1,800')
-      .replaceAll('0 h', '48 ساعة')
-      .replaceAll('h48', '48 ساعة')
-      .replaceAll('48h', '48 ساعة')
-      .replaceAll('30 يومًا مجانًا 30 يومًا مجانًا 30 يومًا مجانًا', '🔥 30 يومًا مجانًا');
-  }
-  fixText();
-})();
-</script>
