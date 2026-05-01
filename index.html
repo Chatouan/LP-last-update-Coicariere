@@ -257,6 +257,11 @@ h2.st{font-size:clamp(1.65rem,3.8vw,2.5rem);font-weight:800;line-height:1.13;mar
 .sn{font-size:clamp(2rem,4vw,2.7rem);font-weight:900;color:var(--white);display:flex;justify-content:center;align-items:baseline;line-height:1;margin-bottom:10px;letter-spacing:.01em}
 .sl{font-size:.82rem;color:var(--off);opacity:.88;line-height:1.45}
 .time-ltr{direction:ltr;unicode-bidi:isolate;display:inline-flex;align-items:baseline;justify-content:center}
+.ltr-value {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+  display: inline-block;
+}
 .tcard{padding:28px 30px;max-width:660px;margin:0 auto}
 .tq{font-size:.93rem;line-height:1.85;color:var(--off);font-style:italic;margin-bottom:18px}
 .tq::before{content:"C";font-size:3.5rem;color:var(--blue);line-height:.45;display:block;margin-bottom:6px;opacity:.7}
@@ -647,7 +652,7 @@ footer{padding:26px 0;border-top:1px solid var(--bd);text-align:center}
     </div>
     <div class="stats4">
       <div class="scell fi"><span class="sn"><span dir="ltr" class="ctr" data-t="1800">0</span>+</span><div class="sl">مرشحون عقار نشيطون</div></div>
-      <div class="scell fi d1"><span class="sn"><span class="time-ltr"><span class="ctr" data-t="48">0</span>h</span></span><div class="sl">متوسط وقت التوظيف</div></div>
+      <div class="scell fi d1"><span class="sn"><span class="stat-number ltr-value" dir="ltr">48h</span></span><div class="sl">متوسط وقت التوظيف</div></div>
       <div class="scell fi d2"><span class="sn"><span dir="ltr">3×</span></span><div class="sl">أكثر كفاءات مؤهلة</div></div>
       <div class="scell fi d3"><span class="sn" dir="ltr">4.9</span><div class="sl">تقييم مسؤولي الموارد البشرية</div></div>
     </div>
